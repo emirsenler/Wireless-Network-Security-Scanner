@@ -112,7 +112,7 @@ def detect_rogue_ap(networks, trusted_bssids):
                     "SSID": ssid,
                     "BSSID": bssid,
                     "Signal Strength": signal,
-                    "Reason": "Zayıf sinyal - olası rogue AP"
+                    "Reason": "Zayif sinyal - olasi rogue AP"
                 })
             else:
                 rogue_aps.append({"SSID": ssid, "BSSID": bssid, "Signal Strength": signal})
@@ -140,8 +140,8 @@ def main():
         "Rogue_APs": rogue_aps
     }
 
-    with open("output.json", "w", encoding="utf-8") as f:
-        json.dump(result, f, indent=4, ensure_ascii=False)
+    with open("output.json", "w") as f:
+        json.dump(result, f, indent=4)
 
     print("Analiz tamamlandı. Sonuçlar 'output.json' dosyasına kaydedildi.")
 
