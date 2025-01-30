@@ -22,7 +22,7 @@ WiFi ağlarını analiz eden ve potansiyel güvenlik tehditlerini tespit eden ka
 
 1. Bu projeyi klonlayın:
 ```bash
-git clone https://github.com/kullaniciadi/wifi-security-tool.git
+git clone https://github.com/emirsenler/wifi-security-tool.git
 cd wifi-security-tool
 ```
 
