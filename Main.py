@@ -14,19 +14,16 @@ def scan_networks():
         ssid = network.ssid
         bssid = network.bssid
         signal = network.signal
-        auth = network.auth
         akm = network.akm
         freq = network.freq
         
         channel = (freq - 2407) // 5 if freq < 5000 else (freq - 5000) // 5
 
-        auth_name = "Open" if auth == const.AUTH_ALG_OPEN else "Shared" if auth == const.AUTH_ALG_SHARED else "Unknown"
         encryption_name = "WPA2-PSK" if akm and const.AKM_TYPE_WPA2PSK in akm else "WPA-PSK" if akm and const.AKM_TYPE_WPA in akm else "WEP"
 
         networks[bssid] = {
             "SSID": ssid,
             "Signal": signal,
-            "Authentication": auth_name,
             "Encryption": encryption_name,
             "Channel": channel
         }
@@ -66,7 +63,6 @@ def detect_evil_twin(networks):
         if not ssid or channel is None:
             continue
 
-
         if (ssid, freq) not in ssid_channels:
             ssid_channels[(ssid, freq)] = []
         ssid_channels[(ssid, freq)].append((bssid, signal))
@@ -99,8 +95,6 @@ def detect_evil_twin(networks):
     
     return filtered_evil_twins
 
-
-
 def detect_rogue_ap(networks, trusted_bssids):
     rogue_aps = []
 
@@ -124,7 +118,6 @@ def detect_rogue_ap(networks, trusted_bssids):
                 rogue_aps.append({"SSID": ssid, "BSSID": bssid, "Signal Strength": signal})
 
     return rogue_aps
-
 
 def main():
     print("Kablosuz ağ taraması yapılıyor...")
