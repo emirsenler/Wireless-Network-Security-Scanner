@@ -140,8 +140,8 @@ def main():
         "Rogue_APs": rogue_aps
     }
 
-    with open("output.json", "w") as f:
-        json.dump(result, f, indent=4)
+    with open("output.json", "w", encoding="utf-8") as f:
+        json.dump(result, f, indent=4, ensure_ascii=False)
 
     print("Analiz tamamlandı. Sonuçlar 'output.json' dosyasına kaydedildi.")
 
